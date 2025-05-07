@@ -45,6 +45,9 @@ android {
 
 }
 
+repositories {
+    flatDir{dirs '../app/libs'}
+}
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -63,7 +66,8 @@ dependencies {
     implementation rootProject.ext.dependencies["fragment"]
     implementation rootProject.ext.dependencies["zxing"]
 
-    implementation rootProject.ext.dependencies["epic"]
+//    implementation rootProject.ext.dependencies["epic"]
+    implementation (name: 'epic-0.11.1', ext:'aar')
 
 //    implementation rootProject.ext.dependencies["sandhook_hooklib"]
 //    implementation rootProject.ext.dependencies["sandhook_nativehook"]
@@ -81,7 +85,7 @@ dependencies {
     implementation project(':dokit-okhttp-api')
     //此处需要使用api的形式 向上暴露内部api
     implementation project(':dokit')
-    implementation project(':dokit-test')
+//    implementation project(':dokit-test')
     //okhttp wrap
     //auto-service
     implementation rootProject.ext.dependencies["auto_service"]

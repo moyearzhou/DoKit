@@ -11,7 +11,6 @@ import com.didichuxing.doraemondemo.R
 import com.didichuxing.doraemondemo.test.ScreenRecordingService
 import com.didichuxing.doraemonkit.kit.core.AbsDoKitView
 import com.didichuxing.doraemonkit.kit.core.DoKitViewLayoutParams
-import com.didichuxing.doraemonkit.kit.test.widget.FlashImageView
 import com.didichuxing.doraemonkit.util.ConvertUtils
 import com.didichuxing.doraemonkit.util.ToastUtils
 import com.didichuxing.doraemonkit.util.UIUtils
@@ -47,7 +46,7 @@ class ScreenRecordingDoKitView : AbsDoKitView() {
         }
     }
 
-    private var mRedDot: FlashImageView? = null
+//    private var mRedDot: FlashImageView? = null
     private var mScreenImageView: ImageView? = null
 
 
@@ -63,7 +62,7 @@ class ScreenRecordingDoKitView : AbsDoKitView() {
 
         myDoKitViews.add(this)
 
-        mRedDot = findViewById(R.id.dot)
+//        mRedDot = findViewById(R.id.dot)
         mScreenImageView = findViewById(R.id.screenAll)
 
         rootView?.setOnClickListener {
@@ -73,8 +72,8 @@ class ScreenRecordingDoKitView : AbsDoKitView() {
             ScreenRecordingService.stopService()
             ToastUtils.showShort("已停止录屏")
         }
-
-        mRedDot?.startFlash()
+//
+//        mRedDot?.startFlash()
 
     }
 
@@ -95,7 +94,7 @@ class ScreenRecordingDoKitView : AbsDoKitView() {
 
     override fun onDestroy() {
         myDoKitViews.remove(this)
-        mRedDot?.cancelFlash()
+//        mRedDot?.cancelFlash()
         super.onDestroy()
     }
 }

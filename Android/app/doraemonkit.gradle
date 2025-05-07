@@ -6,7 +6,7 @@ if (runType == 0) {
     dependencies {
         //外部平台依赖
         debugImplementation project(":dokit")
-        debugImplementation project(":dokit-mc")
+//        debugImplementation project(":dokit-mc")
         debugImplementation project(":dokit-ft")
 //        debugImplementation project(":dokit-weex")
 //        debugImplementation project(":dokit-rpc")

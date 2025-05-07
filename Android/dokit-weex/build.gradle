@@ -60,8 +60,10 @@ dependencies {
     implementation rootProject.ext.dependencies["material"]
     compileOnly project(':dokit-util')
     api project(':dokit')
-    compileOnly rootProject.ext.dependencies["weex_inspector"]
-    compileOnly rootProject.ext.dependencies["weex_sdk"]
+//    compileOnly rootProject.ext.dependencies["weex_inspector"]
+//    compileOnly rootProject.ext.dependencies["weex_sdk"]
+    compileOnly (name: 'weex_sdk_legacy-0.28.0', ext:'aar')
+
     //auto-service
     implementation rootProject.ext.dependencies["auto_service"]
     kapt rootProject.ext.dependencies["auto_service"]

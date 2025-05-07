@@ -17,7 +17,6 @@ import com.didichuxing.doraemondemo.test.ScreenRecordingTest
 import com.didichuxing.doraemonkit.DoKit
 import com.didichuxing.doraemonkit.constant.BundleKey
 import com.didichuxing.doraemonkit.kit.fileexplorer.ImageDetailFragment
-import com.didichuxing.doraemonkit.kit.test.report.ScreenShotManager
 import java.io.File
 
 /**
@@ -31,7 +30,7 @@ class MCActivity : AppCompatActivity() {
 
     lateinit var mAdapter: RVAdapter
 
-    private val screenShotManager = ScreenShotManager("test/kk")
+//    private val screenShotManager = ScreenShotManager("test/kk")
 
     private val screenRecordingTest = ScreenRecordingTest()
 
@@ -49,7 +48,7 @@ class MCActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.testPage).setOnClickListener {
-            startScreenShot()
+//            startScreenShot()
         }
 
         findViewById<Button>(R.id.screenPage).setOnClickListener {
@@ -136,14 +135,14 @@ class MCActivity : AppCompatActivity() {
     }
 
 
-    private fun startScreenShot() {
-        val map = screenShotManager.screenshotBitmap()
-        val fileName = screenShotManager.createNextFileName()
-        screenShotManager.saveBitmap(map, fileName)
-        val bundle = Bundle()
-        bundle.putSerializable(BundleKey.FILE_KEY, File(screenShotManager.getScreenFile(fileName)))
-        DoKit.launchFullScreen(ImageDetailFragment::class.java, this, bundle, false)
-    }
+//    private fun startScreenShot() {
+//        val map = screenShotManager.screenshotBitmap()
+//        val fileName = screenShotManager.createNextFileName()
+//        screenShotManager.saveBitmap(map, fileName)
+//        val bundle = Bundle()
+//        bundle.putSerializable(BundleKey.FILE_KEY, File(screenShotManager.getScreenFile(fileName)))
+//        DoKit.launchFullScreen(ImageDetailFragment::class.java, this, bundle, false)
+//    }
 
 
     private fun initData() {

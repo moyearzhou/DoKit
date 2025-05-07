@@ -31,7 +31,7 @@ import com.didichuxing.doraemondemo.R;
 import com.didichuxing.doraemondemo.mc.MCActivity;
 import com.didichuxing.doraemondemo.test.screen.ScreenRecordingDoKitView;
 import com.didichuxing.doraemonkit.DoKit;
-import com.didichuxing.doraemonkit.kit.test.report.ScreenShotManager;
+//import com.didichuxing.doraemonkit.kit.test.report.ScreenShotManager;
 import com.didichuxing.doraemonkit.util.DoKitExecutorUtil;
 
 import java.nio.ByteBuffer;
@@ -61,7 +61,7 @@ public class ScreenRecordingService extends Service {
 
 
     private ImageReader mImageReader;
-    private ScreenShotManager screenShotManager = new ScreenShotManager("test/sc/");
+//    private ScreenShotManager screenShotManager = new ScreenShotManager("test/sc/");
     private boolean enable = true;
 
     public static void stopService() {
@@ -109,7 +109,7 @@ public class ScreenRecordingService extends Service {
         // 在API11之后构建Notification的方式
         Intent nfIntent = new Intent(activity, MCActivity.class);
 
-        builder.setContentIntent(PendingIntent.getActivity(activity, 0, nfIntent, 0))
+        builder.setContentIntent(PendingIntent.getActivity(activity, 0, nfIntent, PendingIntent.FLAG_IMMUTABLE))
             .setLargeIcon(BitmapFactory.decodeResource(activity.getResources(), R.mipmap.ic_launcher))
             .setContentTitle("下拉列表中的Title")
             .setSmallIcon(R.mipmap.ic_launcher)

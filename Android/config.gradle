@@ -27,10 +27,10 @@ ext {
                versionName                   : "1.0.0",
                glide_version                 : "4.9.0",
                kotlin_version_v13            : "1.3.72",
-               kotlin_version_v14            : "1.4.32",
+               kotlin_version_v14            : "1.8.0",
                kotlin_version_v15            : "1.5.31",
                kotlinx_coroutines_version_v13: "1.3.7",
-               kotlinx_coroutines_version_v14: "1.4.3",
+               kotlinx_coroutines_version_v14: "1.8.0",
                booster_version               : "4.13.0",
                agp_module_verson             : "7.0.0",
                agp_plugin_verson             : "4.2.2",
@@ -54,11 +54,11 @@ ext {
                     "coroutines-core_v13"           : "org.jetbrains.kotlinx:kotlinx-coroutines-core:${android["kotlinx_coroutines_version_v13"]}",
                     "coroutines-core_v14"           : "org.jetbrains.kotlinx:kotlinx-coroutines-core:${android["kotlinx_coroutines_version_v14"]}",
                     "coroutines-android_v13"        : "org.jetbrains.kotlinx:kotlinx-coroutines-android:${android["kotlinx_coroutines_version_v13"]}",
-                    "coroutines-android_v14"        : "org.jetbrains.kotlinx:kotlinx-coroutines-android:${android["kotlinx_coroutines_version_v14"]}",
+                    "coroutines-android_v14"        : "org.jetbrains.kotlinx:kotlinx-coroutines-android:${android["kotlinx_coroutines_version_v18"]}",
                     "core-ktx"                      : "androidx.core:core-ktx:1.3.0",
                     "activity-ktx"                  : "androidx.activity:activity-ktx:1.1.0",
                     "webkit"                        : "androidx.webkit:webkit:1.3.0",
-                    "volley"                        : "com.android.volley:volley:1.1.1",
+                    "volley"                        : "com.android.volley:volley:1.2.1",
                     "fragment"                      : "androidx.fragment:fragment:1.2.0",
                     "fragment-ktx"                  : "androidx.fragment:fragment-ktx:1.2.0",
                     "drawerlayout"                  : "androidx.drawerlayout:drawerlayout:1.1.1",
@@ -100,7 +100,7 @@ ext {
                     //将urlconnection代理到okhttp
                     //"okhttp_urlconnection"    : "com.squareup.okhttp3:okhttp-urlconnection:3.12.1",
                     "okio"                          : "com.squareup.okio:okio:1.17.2",
-                    "utilcode"                      : 'com.blankj:utilcodex:1.29.0',
+                    "utilcode"                      : 'com.blankj:utilcodex:1.31.1',
                     "glide"                         : "com.github.bumptech.glide:glide:${android["glide_version"]}",
                     "glide_v3"                      : 'com.github.bumptech.glide:glide:3.8.0',
                     "glide_okhttp3"                 : "com.github.bumptech.glide:okhttp3-integration:${android["glide_version"]}",
@@ -109,7 +109,7 @@ ext {
                     "coil_v13"                      : "io.coil-kt:coil:${android["coil_v13"]}",
                     "picasso"                       : 'com.squareup.picasso:picasso:2.71828',
                     "fresco"                        : 'com.facebook.fresco:fresco:1.13.0',
-                    "fresco-processors"             : "jp.wasabeef:fresco-processors:2.1.0",
+                    "fresco-processors"             : "jp.wasabeef:fresco-processors:2.2.1",
                     "image-loader"                  : 'com.nostra13.universalimageloader:universal-image-loader:1.9.5',
                     "rootbeer-lib"                  : 'com.scottyab:rootbeer-lib:0.0.8',
                     "gson"                          : 'com.google.code.gson:gson:2.8.2',
@@ -121,17 +121,17 @@ ext {
                     "debug-db-encrypt"              : "com.amitshekhar.android:debug-db-encrypt:1.0.6",
                     //https://github.com/Tencent/wcdb
                     "wcdb"                          : "com.tencent.wcdb:wcdb-android:1.0.8",
-                    "weex_inspector"                : "com.taobao.android:weex_inspector:0.24.2.11",
-                    "weex_sdk"                      : "org.apache.weex:sdk:0.28.0",
-                    "brvah"                         : 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4',
+//                    "weex_inspector"                : "com.taobao.android:weex_inspector:0.24.2.11",
+//                    "weex_sdk"                      : "org.apache.weex:sdk:0.28.0",
+//                    "brvah"                         : 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.14',
                     "easy_refresh_layout"           : 'com.github.anzaizai:EasyRefreshLayout:1.3.1',
-                    "android_spinkit"               : 'com.github.ybq:Android-SpinKit:1.4.0',
+//                    "android_spinkit"               : 'com.github.ybq:Android-SpinKit:1.4.0',
                     "jsonviewer"                    : "com.yuyh.json:jsonviewer:1.0.6",
                     "room_runtime"                  : 'androidx.room:room-runtime:2.0.0',
                     "room_compile"                  : 'androidx.room:room-compiler:2.0.0',
                     "didi_http"                     : 'com.didichuxing.foundation:http:2.1.0.86',
                     "didi_rpc"                      : 'com.didichuxing.foundation:rpc:2.1.0.86',
-                    "okgo"                          : "com.lzy.net:okgo:3.0.4",
+//                    "okgo"                          : "com.lzy.net:okgo:3.0.4",
                     //高德地图定位
                     "amap_location"                 : 'com.amap.api:location:6.1.0',
                     //高德地图
@@ -141,28 +141,29 @@ ext {
                     "tencent_location"              : 'com.tencent.map.geolocation:TencentLocationSdk-openplatform:7.2.5',
                     "tencent_map"                   : 'com.tencent.map:tencent-map-vector-sdk:4.4.0',
                     "tencent_map_util"              : 'com.tencent.map:sdk-utilities:1.0.6',
-                    "easypermissions"               : "pub.devrel:easypermissions:2.0.1",
+                    "easypermissions"               : "pub.devrel:easypermissions:3.0.0",
                     //跨进程通信框架
                     "abridge"                       : "com.sjtu.yifei:abridge:1.0.1",
                     "jsoup"                         : "org.jsoup:jsoup:1.13.1",
                     "mimecraft"                     : "com.squareup.mimecraft:mimecraft:1.1.1",
                     //tencent x5 浏览器 https://x5.tencent.com/
-                    "tbs"                           : "com.tencent.tbs.tbssdk:sdk:43903",
+//                    "tbs"                           : "com.tencent.tbs.tbssdk:sdk:43903",
 //                    "swipeback"    : "me.imid.swipebacklayout.lib:library:1.1.0"
-                    "flexbox"                       : 'com.google.android:flexbox:1.0.0',
+//                    "flexbox"                       : 'com.googleƒ.android:flexbox:3.0.0',
                     "auto_service"                  : 'com.google.auto.service:auto-service:1.0',
                     "hummer"                        : 'io.github.didi.hummer:hummer:0.3.23',
                     "sandhook_hooklib"              : 'com.swift.sandhook:hooklib:4.2.1',
                     "sandhook_nativehook"           : 'com.swift.sandhook:nativehook:4.2.1',
                     "sandhook_xposedcompat"         : 'com.swift.sandhook:xposedcompat:4.2.1',
-                    "epic"                          : 'me.weishu:epic:0.11.1',
+//                    "epic"                          : 'me.weishu:epic:0.11.1',
 //                    "epic"                          : 'com.github.tiann:epic:0.11.2',
 
     ]
     //定义全局方法
     needKotlinV14 = {
-        String version = publish_config["version"]
-        return !version.contains("kotlin-13")
+        return true
+//        String version = publish_config["version"]
+//        return !version.contains("kotlin-13")
     }
 
     usePrivateEnv = {
