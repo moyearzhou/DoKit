@@ -13,7 +13,7 @@
         app:dkLeftIcon="@mipmap/title_back"
         app:dkLeftText="@string/dk_back"
         app:dkRightText="@string/dk_setting"
-        app:dkTitle="DoKit" />
+        app:dkTitle="CodemaoKit" />
 
     <View
         android:layout_width="match_parent"

@@ -37,7 +37,7 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="40dp"
                 android:layout_marginRight="16dp"
-                android:text="是否开启Dokit For Web"
+                android:text="是否开启Cmkit For Web"
                 android:textSize="20sp" />
         </LinearLayout>
 

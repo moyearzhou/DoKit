@@ -44,21 +44,21 @@ class DokitMoreFragment : BaseFragment() {
      * 获取列表数据
      */
     fun getData() {
+        initView(convertGroup2normalItem(createDefaultGroups()))
 
-        val request = StringRequest(
-            Request.Method.GET,
-            NetworkManager.DOKIT_MORE_PAGE_URL,
-            {
-                val morePageGroupBean = GsonUtils.fromJson(
-                    it,
-                    MorePageGroupBean::class.java
-                )
-                initView(convertGroup2normalItem(morePageGroupBean.data.group))
-            }, {
-                initView(convertGroup2normalItem(createDefaultGroups()))
-            })
-        VolleyManager.add(request)
-
+//        val request = StringRequest(
+//            Request.Method.GET,
+//            NetworkManager.DOKIT_MORE_PAGE_URL,
+//            {
+//                val morePageGroupBean = GsonUtils.fromJson(
+//                    it,
+//                    MorePageGroupBean::class.java
+//                )
+//                initView(convertGroup2normalItem(morePageGroupBean.data.group))
+//            }, {
+//                initView(convertGroup2normalItem(createDefaultGroups()))
+//            })
+//        VolleyManager.add(request)
     }
 
     /**
@@ -72,7 +72,7 @@ class DokitMoreFragment : BaseFragment() {
             mutableListOf()
         val listBean = MorePageGroupBean.DataBean.GroupBean.ListBean()
         listBean.name = "功能管理"
-        listBean.desc = "介绍:可以针对dokit的内置工具列表进行自定义排序"
+        listBean.desc = "介绍:可以针对CodemaoKit的内置工具列表进行自定义排序"
         listBean.link = "dokit://native/function_manager"
         listBean.type = "native"
         list.add(listBean)

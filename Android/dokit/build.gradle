@@ -105,7 +105,7 @@ dependencies {
     implementation rootProject.ext.dependencies["jsoup"]
     //okhttp wrap
     implementation project(':dokit-okhttp-api')
-    implementation project(':dokit-util')
+    api project(':dokit-util')
 
 
 //    implementation rootProject.ext.dependencies["mimecraft"]
