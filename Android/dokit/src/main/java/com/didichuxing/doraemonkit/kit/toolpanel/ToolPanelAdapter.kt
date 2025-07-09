@@ -41,7 +41,7 @@ class ToolPanelAdapter(kitViews: MutableList<KitWrapItem>?) :
                 item.name.let {
                     if (it == DoKitCommUtil.getString(R.string.dk_category_platform)) {
                         holder.getView<TextView>(R.id.tv_sub_title_name).visibility = View.VISIBLE
-                        holder.getView<TextView>(R.id.tv_sub_title_name).text = "(www.dokit.cn)"
+                        holder.getView<TextView>(R.id.tv_sub_title_name).text = "(debug.codemao.cn)"
                     } else {
                         holder.getView<TextView>(R.id.tv_sub_title_name).visibility = View.GONE
                     }

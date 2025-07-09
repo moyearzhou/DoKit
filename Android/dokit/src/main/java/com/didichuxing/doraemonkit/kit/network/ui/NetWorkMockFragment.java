@@ -125,7 +125,9 @@ public class NetWorkMockFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 if (mSelectedTableIndex == BOTTOM_TAB_INDEX_0) {
-                    mInterceptFilterBean.setFilterText(mEditText.getText().toString());
+                    if (mInterceptFilterBean != null) {
+                        mInterceptFilterBean.setFilterText(mEditText.getText().toString());
+                    }
                 } else if (mSelectedTableIndex == BOTTOM_TAB_INDEX_1) {
                     mTemplateFilterBean.setFilterText(mEditText.getText().toString());
                 }
@@ -198,6 +200,8 @@ public class NetWorkMockFragment extends BaseFragment {
         mRvIntercept.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         mRvTemplate.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        // todo 直接从数据库去获取
         //请求接口列表
         initResponseApis(1);
     }
@@ -597,7 +601,9 @@ public class NetWorkMockFragment extends BaseFragment {
 
         Request<String> request = new StringRequest(Request.Method.GET, apiUrl, new Response.Listener<String>() {
             @Override
-            public void onResponse(String response) {
+            public void onResponse(String response11) {
+                String response = TestMock.mockedString;
+
                 try {
                     if (mSelectedTableIndex == BOTTOM_TAB_INDEX_0) {
                         MockApiResponseBean mockApiResponseBean = GsonUtils.fromJson(response, MockApiResponseBean.class);
@@ -654,6 +660,12 @@ public class NetWorkMockFragment extends BaseFragment {
                         mTemplateRefreshLayout.refreshComplete();
                         mHomeTitleBar.setTitle(DoKitCommUtil.getString(R.string.dk_kit_network_mock) + "(0)");
                     }
+                    if (mSelectedTableIndex == BOTTOM_TAB_INDEX_0) {
+                        // 使用空的进行初始化
+                        initMenus(new ArrayList<>());
+                    }
+                    // todo 传入一个空集合
+                    attachInterceptRv(new ArrayList<>());
                 }
             }
         }, new Response.ErrorListener() {

@@ -65,7 +65,8 @@ class App : Application() {
 
 
         DoKit.Builder(this)
-            .productId("749a0600b5e48dd77cf8ee680be7b1b7")
+//            .productId("749a0600b5e48dd77cf8ee680be7b1b7")
+            .productId("a6e5f014f3d87d28d0e7067d07322565")
                 //测试环境pid
 //            .productId("277016abcc33bff1e6a4f1afdf14b8e1")
             .disableUpload()

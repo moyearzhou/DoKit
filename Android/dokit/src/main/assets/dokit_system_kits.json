@@ -8,6 +8,11 @@
               "innerKitId": "dokit_sdk_platform_ck_mock"
           },
           {
+              "allClassName": "com.didichuxing.doraemonkit.kit.filemanager.NetWorkMock2Kit",
+              "checked": true,
+              "innerKitId": "dokit_sdk_platform_ck_networkmock"
+          },
+          {
               "allClassName": "com.didichuxing.doraemonkit.kit.health.HealthKit",
               "checked": true,
               "innerKitId": "dokit_sdk_platform_ck_health"
@@ -96,26 +101,6 @@
         "allClassName": "com.didichuxing.doraemonkit.kit.h5_help.H5Kit",
         "checked": true,
         "innerKitId": "dokit_sdk_comm_ck_h5kit"
-      }
-    ]
-  },
-  {
-    "groupId": "dk_category_lbs",
-    "kits": [
-      {
-        "allClassName": "com.didichuxing.doraemonkit.kit.gpsmock.GpsMockKit",
-        "checked": true,
-        "innerKitId": "dokit_sdk_comm_ck_gps"
-      },
-      {
-        "allClassName": "com.didichuxing.doraemonkit.kit.lbs.manual.PosAdjustKit",
-        "checked": true,
-        "innerKitId": "dokit_sdk_lbs_ck_pos_adjust"
-      },
-      {
-        "allClassName": "com.didichuxing.doraemonkit.kit.lbs.route.RealNavMockKit",
-        "checked": true,
-        "innerKitId": "dokit_sdk_lbs_ck_nav"
       }
     ]
   },

@@ -20,6 +20,7 @@
         android:layout_height="79.5dp"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        android:src="@mipmap/dk_egg" />
+        android:src="@mipmap/dk_egg"
+        android:visibility="gone"/>
 
 </LinearLayout>
