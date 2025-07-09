@@ -8,11 +8,6 @@
               "innerKitId": "dokit_sdk_platform_ck_mock"
           },
           {
-              "allClassName": "com.didichuxing.doraemonkit.kit.filemanager.NetWorkMock2Kit",
-              "checked": true,
-              "innerKitId": "dokit_sdk_platform_ck_networkmock"
-          },
-          {
               "allClassName": "com.didichuxing.doraemonkit.kit.health.HealthKit",
               "checked": true,
               "innerKitId": "dokit_sdk_platform_ck_health"
