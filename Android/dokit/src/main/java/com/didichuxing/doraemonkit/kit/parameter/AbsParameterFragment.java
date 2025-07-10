@@ -32,10 +32,10 @@ public abstract class AbsParameterFragment extends BaseFragment implements Perfo
 
     private SettingItemAdapter mSettingItemAdapter;
     private RecyclerView mSettingList;
-    private static final String[] PERMISSIONS_STORAGE = {
-            "android.permission.READ_EXTERNAL_STORAGE",
-            "android.permission.WRITE_EXTERNAL_STORAGE"};
-    private static final int REQUEST_EXTERNAL_STORAGE = 2;
+//    private static final String[] PERMISSIONS_STORAGE = {
+//            "android.permission.READ_EXTERNAL_STORAGE",
+//            "android.permission.WRITE_EXTERNAL_STORAGE"};
+//    private static final int REQUEST_EXTERNAL_STORAGE = 2;
 
 
     @Override
@@ -94,8 +94,8 @@ public abstract class AbsParameterFragment extends BaseFragment implements Perfo
                     if (view instanceof CheckBox) {
                         ((CheckBox) view).setChecked(false);
                     }
-                    requestPermissions(PERMISSIONS_STORAGE, REQUEST_EXTERNAL_STORAGE);
-                    return;
+//                    requestPermissions(PERMISSIONS_STORAGE, REQUEST_EXTERNAL_STORAGE);
+//                    return;
                 }
                 SettingItemAdapter.OnSettingItemSwitchListener itemSwitchListener = getItemSwitchListener();
                 if (itemSwitchListener != null) {
@@ -106,10 +106,10 @@ public abstract class AbsParameterFragment extends BaseFragment implements Perfo
         mSettingItemAdapter.setOnSettingItemClickListener(new SettingItemAdapter.OnSettingItemClickListener() {
             @Override
             public void onSettingItemClick(View view, SettingItem data) {
-                if (!ownPermissionCheck()) {
-                    requestPermissions(PERMISSIONS_STORAGE, REQUEST_EXTERNAL_STORAGE);
-                    return;
-                }
+//                if (!ownPermissionCheck()) {
+//                    requestPermissions(PERMISSIONS_STORAGE, REQUEST_EXTERNAL_STORAGE);
+//                    return;
+//                }
                 SettingItemAdapter.OnSettingItemClickListener itemClickListener = getItemClickListener();
                 if (itemClickListener != null) {
                     itemClickListener.onSettingItemClick(view, data);
@@ -120,25 +120,26 @@ public abstract class AbsParameterFragment extends BaseFragment implements Perfo
         mSettingList.setAdapter(mSettingItemAdapter);
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if (requestCode == REQUEST_EXTERNAL_STORAGE) {
-            for (int grantResult : grantResults) {
-                if (grantResult == -1) {
-                    ToastUtils.showShort(R.string.dk_error_tips_permissions_less);
-                }
-            }
-        }
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-    }
+//    @Override
+//    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+//        if (requestCode == REQUEST_EXTERNAL_STORAGE) {
+//            for (int grantResult : grantResults) {
+//                if (grantResult == -1) {
+//                    ToastUtils.showShort(R.string.dk_error_tips_permissions_less);
+//                }
+//            }
+//        }
+//        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+//    }
 
     private boolean ownPermissionCheck() {
-
-        int permission = ActivityCompat.checkSelfPermission(getActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
-        if (permission != PackageManager.PERMISSION_GRANTED) {
-            return false;
-        }
         return true;
+
+//        int permission = ActivityCompat.checkSelfPermission(getActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
+//        if (permission != PackageManager.PERMISSION_GRANTED) {
+//            return false;
+//        }
+//        return true;
     }
 
     @Override

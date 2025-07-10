@@ -233,7 +233,13 @@ public class PerformanceDataManager {
     }
 
     private String getFilePath(Context context) {
-        return context.getCacheDir() + File.separator + "doraemon/";
+        String path =context.getCacheDir() + File.separator + "doraemon/";
+        File file = new File(path);
+        if (!file.exists()) {
+            file.mkdirs();
+        }
+
+        return path;
     }
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
