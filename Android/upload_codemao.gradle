@@ -2,7 +2,7 @@ import org.gradle.api.internal.artifacts.dependencies.DefaultProjectDependency
 import org.json.JSONObject
 // mavenCentral 打包脚本
 apply plugin: 'maven-publish'
-apply plugin: 'signing'
+//apply plugin: 'signing'
 
 def DOKIT_VERSION = rootProject.ext.publish_config["version"]
 def DOKIT_GROUP_ID = rootProject.ext.publish_config["group_id"]
@@ -10,13 +10,13 @@ def DOKIT_GROUP_ID = rootProject.ext.publish_config["group_id"]
 //生成源码注释
 task packageSourcesJar(type: Jar) {
     classifier 'sources'
-    if (project.ARTIFACT_ID == "dokitx-plugin") {
+    if (project.ARTIFACT_ID == "codemaokit-plugin") {
         from project.kotlin.sourceSets.main.kotlin.getSrcDirs()
     } else {
         from project.android.sourceSets.main.java.getSrcDirs()
     }
 }
-if (project.ARTIFACT_ID == "dokitx-plugin") {
+if (project.ARTIFACT_ID == "codemaokit-plugin") {
     task packageJavadoc(type: Jar) {
         classifier = 'javadoc'
         from javadoc
@@ -24,34 +24,35 @@ if (project.ARTIFACT_ID == "dokitx-plugin") {
 }
 
 
-ext["signing.keyId"] = ''
-ext["signing.password"] = ''
-ext["signing.secretKeyRingFile"] = ''
-ext["ossrhUsername"] = ''
-ext["ossrhPassword"] = ''
+//ext["signing.keyId"] = ''
+//ext["signing.password"] = ''
+//ext["signing.secretKeyRingFile"] = ''
+//ext["ossrhUsername"] = ''
+//ext["ossrhPassword"] = ''
 
 
-File secretPropsFile = project.rootProject.file('local.properties')
-if (secretPropsFile.exists()) {
-    println "Found secret props file, loading props"
-    Properties p = new Properties()
-    p.load(new FileInputStream(secretPropsFile))
-    p.each { name, value ->
-        ext[name] = value
-    }
-    println "Found secret props file, loading props"
-} else {
-    throw NullPointerException("no local.properties exists")
-}
+//File secretPropsFile = project.rootProject.file('local.properties')
+//if (secretPropsFile.exists()) {
+//    println "Found secret props file, loading props"
+//    Properties p = new Properties()
+//    p.load(new FileInputStream(secretPropsFile))
+//    p.each { name, value ->
+//        ext[name] = value
+//    }
+//    println "Found secret props file, loading props"
+//} else {
+//    throw NullPointerException("no local.properties exists")
+//}
 
-Properties properties = new Properties()
-properties.load(project.rootProject.file('local.properties').newDataInputStream())
-def USERNAME = properties.getProperty('MAVEN_CENTRAL_USERNAME', "")
-def PASSWORD = properties.getProperty('MAVEN_CENTRAL_PASSWORD', "")
+//Properties properties = new Properties()
+//properties.load(project.rootProject.file('local.properties').newDataInputStream())
+//def USERNAME = properties.getProperty('MAVEN_CENTRAL_USERNAME', "")
+//def PASSWORD = properties.getProperty('MAVEN_CENTRAL_PASSWORD', "")
 
 //读取module和ARTIFACT_ID的映射文件
 def MODULE_JSONOBJECT = new JSONObject(new File("${rootProject.rootDir}/dokit_module.json").text)
-//println("jsonObject==>${MODULE_JSONOBJECT.getString("doraemonkit")}")
+//println("jsonObject==>${MODULE_JSONOBJECT.getString('dokit')} project.ARTIFACT_ID==>${project.ARTIFACT_ID}")
+//println("jsonObject==>${MODULE_JSONOBJECT.getString(project.ARTIFACT_ID)} project.ARTIFACT_ID==>${project.ARTIFACT_ID}")
 
 afterEvaluate {
     publishing {
@@ -64,7 +65,7 @@ afterEvaluate {
                 version DOKIT_VERSION
                 artifact packageSourcesJar
                 // Two artifacts, the `aar` and the sources
-                if (project.ARTIFACT_ID == "dokitx-plugin") {
+                if (project.ARTIFACT_ID == "codemaokit-plugin") {
                     artifact packageJavadoc
                     artifact("$buildDir/libs/${project.getName()}.jar")
                 } else {
@@ -125,31 +126,38 @@ afterEvaluate {
         }
         repositories {
             // The repository to publish to, Sonatype/MavenCentral
+//            maven {
+//                // This is an arbitrary name, you may also use "mavencentral" or
+//                // any other name that's descriptive for you
+//                name = "mavenCentral"
+//
+//                def releasesRepoUrl = "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
+//                def snapshotsRepoUrl = "https://s01.oss.sonatype.org/content/repositories/snapshots/"
+//                // You only need this if you want to publish snapshots, otherwise just set the URL
+//                // to the release repo directly
+//                url = DOKIT_VERSION.endsWith('-SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+//
+//                // 用于打印url，方便查看aar是否存在
+//                def searchUrl = "https://search.maven.org/artifact/"
+//                System.out.println("aar url：" + searchUrl + DOKIT_GROUP_ID + "/" + project.ARTIFACT_ID + "/" + DOKIT_VERSION + "/aar")
+//
+//                // The username and password we've fetched earlier
+//                credentials {
+//                    username USERNAME
+//                    password PASSWORD
+//                }
+//            }
             maven {
-                // This is an arbitrary name, you may also use "mavencentral" or
-                // any other name that's descriptive for you
-                name = "mavenCentral"
-
-                def releasesRepoUrl = "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
-                def snapshotsRepoUrl = "https://s01.oss.sonatype.org/content/repositories/snapshots/"
-                // You only need this if you want to publish snapshots, otherwise just set the URL
-                // to the release repo directly
-                url = DOKIT_VERSION.endsWith('-SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
-
-                // 用于打印url，方便查看aar是否存在
-                def searchUrl = "https://search.maven.org/artifact/"
-                System.out.println("aar url：" + searchUrl + DOKIT_GROUP_ID + "/" + project.ARTIFACT_ID + "/" + DOKIT_VERSION + "/aar")
-
-                // The username and password we've fetched earlier
+                url = DOKIT_VERSION.endsWith('SNAPSHOT') ? "https://nexus.codemao.cn/nexus/content/repositories/snapshots/" : "https://nexus.codemao.cn/nexus/content/repositories/android/"
                 credentials {
-                    username USERNAME
-                    password PASSWORD
+                    username("developer01")
+                    password("TxFn8QO2tXYm3nWU")
                 }
             }
         }
     }
 }
 
-signing {
-    sign publishing.publications
-}
+//signing {
+//    sign publishing.publications
+//}

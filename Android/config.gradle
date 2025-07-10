@@ -13,12 +13,13 @@ ext {
         //是否使用本地仓库，需要使用绝对路径，仓库地址在 local.properties 中添加 LOCAL_REPOSITORY_URL
         use_local    : true,
 //        group_id     : 'io.github.didi.dokit',
-        group_id     : 'com.didichuxing.doraemonkit',
-        version      : '3.7.14.9-kotlin-13'
+        group_id     : 'cn.codemao.kit',
+        version      : '1.0.0'
+        // 当前版本实际为3.7.14.9-kotlin-13
     ]
 
     android = [compileSdkVersion             : 31,
-               applicationId                 : "com.didichuxing.doraemondemo",
+               applicationId                 : "com.codemao.codemaokit",
                minSdkVersion_16              : 16,
                minSdkVersion_21              : 21,
                targetSdkVersion              : 31,

@@ -160,6 +160,8 @@ internal  class DoKitTransformInvocation(
                     )
                 }
             }
+            NOTCHANGED -> {
+            }
         }
     }
 
@@ -198,6 +200,8 @@ internal  class DoKitTransformInvocation(
                             bytecode.transform()
                         }
                     }
+                }
+                NOTCHANGED -> {
                 }
             }
         }
