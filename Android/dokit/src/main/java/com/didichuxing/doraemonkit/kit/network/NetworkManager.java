@@ -42,23 +42,25 @@ public class NetworkManager {
      * 线上地址：https://www.dokit.cn/healthCheck/addCheckData
      * 测试环境地址:http://dokit-test.intra.xiaojukeji.com/healthCheck/addCheckData
      */
-    public static final String APP_HEALTH_URL = "https://www.dokit.cn/healthCheck/addCheckData";
+    public static final String APP_HEALTH_URL = "https://" + DOKIT_HOST + "/healthCheck/addCheckData";
     /**
      * ########业务埋点的网络接口#########
      */
-    public static final String APP_DATA_PICK_URL = "https://www.dokit.cn/pointData/addPointData";
+    public static final String APP_DATA_PICK_URL = "https://" + DOKIT_HOST + "/pointData/addPointData";
     //public static final String APP_DATA_PICK_URL = "http://dokit-test.intra.xiaojukeji.com/pointData/addPointData";
     /**
      * 慢函数操作文档
      */
 
-    public static final String APP_DOCUMENT_URL = "https://xingyun.xiaojukeji.com/docs/dokit/#/TimeProfiler";
+    public static final String DOMAIN_PLATFORM_TOOL = "https://xingyun.xiaojukeji.com";
+
+    public static final String APP_DOCUMENT_URL = DOMAIN_PLATFORM_TOOL + "/docs/dokit/#/TimeProfiler";
 
     /**
      * 文件同步助手操作文档
      */
 
-    public static final String FILE_MANAGER_DOCUMENT_URL = "https://xingyun.xiaojukeji.com/docs/dokit/#/FileList";
+    public static final String FILE_MANAGER_DOCUMENT_URL = DOMAIN_PLATFORM_TOOL + "/docs/dokit/#/FileList";
     /**
      * 线上环境
      * app 启动数据埋点
